@@ -6,7 +6,7 @@ EAPI=4
 
 inherit eutils
 
-DESCRIPTION="Pica Pica Messenger"
+DESCRIPTION="Pica Pica Messenger and Node in single ebuild"
 HOMEPAGE="http://picapica.im/"
 SRC_URI="http://picapica.im/pica-pica-${PV}.tar.gz"
 
@@ -17,6 +17,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+client server"
 
 DEPEND=">=dev-libs/openssl-0.9.8
+
+	!net-im/pica-node
+	!net-im/pica-client
 	
 	server? ( >=dev-db/sqlite-3.7.0 )
 
