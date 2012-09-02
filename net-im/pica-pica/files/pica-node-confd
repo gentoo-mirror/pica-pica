@@ -1,0 +1,20 @@
+### Path to the pica-node binary
+#PICANODE_BIN="/usr/bin/pica-node"
+
+### Options to pass to pica-node
+### See the pica-node(8) manpage for more info
+#PICANODE_OPTS="-vvv"
+
+###  Location of logfile (should be writeable for PICANODE_USER user)
+#PICANODE_ERR="/var/log/pica-node/pica-node.err"
+
+### Location of logfile (should be writeable for PICANODE_USER user)
+#PICANODE_LOG="/var/log/pica-node/pica-node.log"
+
+### Run daemon as another user (username or username:groupname)
+### If you change this setting, run "/etc/init.d/pica-node file-perm"
+#PICANODE_USER="pica-node"
+
+### Pid file to use
+#PIDFILE="/var/run/pica-node.pid"
+
