@@ -23,7 +23,7 @@ SLOT="0"
 
 IUSE="+client server"
 
-DEPEND=">=dev-libs/openssl-0.9.8
+DEPEND=">=dev-libs/openssl-1.0.1
 
 	!net-im/pica-node
 	!net-im/pica-client
