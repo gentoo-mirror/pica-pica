@@ -23,7 +23,7 @@ SLOT="0"
 
 IUSE="+client server"
 
-DEPEND=">=dev-libs/openssl-1.0.1
+DEPEND=">=dev-libs/openssl-1.0.1i
 
 	!net-im/pica-node
 	!net-im/pica-client
@@ -34,7 +34,8 @@ DEPEND=">=dev-libs/openssl-1.0.1
 		>dev-qt/qtgui-4.0.0
 		>dev-qt/qtsql-4.0.0[sqlite]
 		virtual/pkgconfig
-		x11-misc/xdg-utils 
+		x11-misc/xdg-utils
+		media-sound/alsa-utils
 	)"
 
 RDEPEND="${DEPEND}"
