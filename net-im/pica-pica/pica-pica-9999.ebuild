@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit eutils
+inherit eutils user
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="git://github.com/antonsviridenko/pica-pica.git"
