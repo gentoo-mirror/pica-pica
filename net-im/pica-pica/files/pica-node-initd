@@ -1,0 +1,36 @@
+#!/sbin/runscript
+
+PICANODE_BIN="${PICANODE_BIN:-/usr/bin/pica-node}"
+PICANODE_OPTS="${PICANODE_OPTS:--v}"
+PICANODE_ERR="${PICANODE_ERR:-/var/log/pica-node/pica-node.err}"
+PICANODE_LOG="${PICANODE_LOG:-/var/log/pica-node/pica-node.log}"
+PICANODE_USER="${PICANODE_USER:-pica-node}"
+PIDFILE="${PIDFILE:-/var/run/pica-node.pid}"
+NODELISTDB="${NODELISTDB:-/var/lib/pica-node/nodelist.db}" # Only for file_perm()
+
+depend() {
+        need net
+        use dns
+}
+
+file_perm() {
+        test -f ${PICANODE_ERR} &&  chown ${PICANODE_USER} ${PICANODE_ERR}
+        test -f ${PICANODE_LOG} &&  chown ${PICANODE_USER} ${PICANODE_LOG}
+	test -f ${NODELISTDB} && chown ${PICANODE_USER} ${NODELISTDB}
+}
+
+start() {
+        ebegin "Starting pica-node"
+        start-stop-daemon --start --quiet --background --make-pidfile \
+                --pidfile ${PIDFILE} --exec ${PICANODE_BIN} \
+                --stdout ${PICANODE_LOG} --stderr ${PICANODE_ERR} \
+                --user ${PICANODE_USER} -- ${PICANODE_OPTS}
+        eend $?
+}
+
+stop() {
+        ebegin "Stoping pica-node"
+        start-stop-daemon --stop --quiet --pidfile ${PIDFILE}
+eend $?
+
+}
