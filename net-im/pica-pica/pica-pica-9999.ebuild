@@ -59,10 +59,17 @@ src_prepare() {
 fi
 
 src_configure() {
+	qtflags="--with-qt=qt5"
+	if use qt5; then
+		qtflags=$(use_with qt5 qt qt5)
+	elif use qt4; then
+		qtflags=$(use_with qt4 qt qt4)
+	fi
+
     if use client && use server; then
-		econf --disable-menuitem --localstatedir="/var" $(use_with qt4 qt qt4) $(use_with qt5 qt qt5)
+		econf --disable-menuitem --localstatedir="/var"  $qtflags
 	elif use client ;then
-		econf --disable-node --disable-menuitem $(use_with qt4 qt qt4) $(use_with qt5 qt qt5)
+		econf --disable-node --disable-menuitem $qtflags
 	elif use server; then
 		econf --disable-client --localstatedir="/var"
 	fi
