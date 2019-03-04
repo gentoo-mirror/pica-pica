@@ -21,7 +21,7 @@ HOMEPAGE="http://picapica.im/"
 LICENSE="BSD-2"
 SLOT="0"
 
-IUSE="+client server"
+IUSE="+client server qt4 +qt5"
 
 DEPEND=">=dev-libs/openssl-1.0.1i
 
@@ -30,9 +30,20 @@ DEPEND=">=dev-libs/openssl-1.0.1i
 	
 	server? ( >=dev-db/sqlite-3.7.0 )
 
-	client? ( >dev-qt/qtcore-4.0.0
-		>dev-qt/qtgui-4.0.0
-		>dev-qt/qtsql-4.0.0[sqlite]
+	client? (
+		qt4? (
+			>dev-qt/qtgui-4.0.0
+			>dev-qt/qtcore-4.0.0
+			>dev-qt/qtnetwork-4.0.0
+			>dev-qt/qtsql-4.0.0[sqlite]
+		)
+		qt5? (
+			>dev-qt/qtcore-5.10.0
+			>dev-qt/qtwidgets-5.10.0
+			>dev-qt/qtgui-5.10.0
+			>dev-qt/qtnetwork-5.10.0
+			>dev-qt/qtsql-5.10.0[sqlite]
+		)
 		virtual/pkgconfig
 		x11-misc/xdg-utils
 		media-sound/alsa-utils
@@ -50,9 +61,9 @@ fi
 
 src_configure() {
     if use client && use server; then
-		econf --disable-menuitem --localstatedir="/var"
+		econf --disable-menuitem --localstatedir="/var" $(use_with qt4 qt qt4) $(use_with qt5 qt qt5)
 	elif use client ;then
-		econf --disable-node --disable-menuitem 
+		econf --disable-node --disable-menuitem $(use_with qt4 qt qt4) $(use_with qt5 qt qt5)
 	elif use server; then
 		econf --disable-client --localstatedir="/var"
 	fi
