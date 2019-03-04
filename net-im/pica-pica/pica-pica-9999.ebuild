@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit eutils
+inherit eutils user
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="git://github.com/antonsviridenko/pica-pica.git"
@@ -23,7 +23,7 @@ SLOT="0"
 
 IUSE="+client server qt4 +qt5"
 
-DEPEND=">=dev-libs/openssl-1.0.1
+DEPEND=">=dev-libs/openssl-1.0.1i
 
 	!net-im/pica-node
 	!net-im/pica-client
@@ -45,7 +45,8 @@ DEPEND=">=dev-libs/openssl-1.0.1
 			>dev-qt/qtsql-5.10.0[sqlite]
 		)
 		virtual/pkgconfig
-		x11-misc/xdg-utils 
+		x11-misc/xdg-utils
+		media-sound/alsa-utils
 	)"
 
 RDEPEND="${DEPEND}"
