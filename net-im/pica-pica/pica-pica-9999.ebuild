@@ -34,7 +34,6 @@ DEPEND=">=dev-libs/openssl-1.0.1i
 		qt4? (
 			>dev-qt/qtgui-4.0.0
 			>dev-qt/qtcore-4.0.0
-			>dev-qt/qtnetwork-4.0.0
 			>dev-qt/qtsql-4.0.0[sqlite]
 		)
 		qt5? (
