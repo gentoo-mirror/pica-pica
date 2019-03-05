@@ -18,17 +18,17 @@ fi
 DESCRIPTION="Pica Pica Messenger and Node in single ebuild"
 HOMEPAGE="http://picapica.im/"
 
-LICENSE="BSD-2"
+LICENSE="GPL-3+"
 SLOT="0"
 
-IUSE="+client server qt4 +qt5"
+IUSE="+client node qt4 +qt5 upnp"
 
-DEPEND=">=dev-libs/openssl-1.0.1i
-
+DEPEND=">=dev-libs/openssl-1.0.2q
+	upnp? ( >=net-libs/miniupnpc-2.0 )
 	!net-im/pica-node
 	!net-im/pica-client
-	
-	server? ( >=dev-db/sqlite-3.7.0 )
+
+	node? ( >=dev-db/sqlite-3.7.0 )
 
 	client? (
 		qt4? (
@@ -66,24 +66,18 @@ src_configure() {
 		qtflags=$(use_with qt4 qt qt4)
 	fi
 
-    if use client && use server; then
-		econf --disable-menuitem --localstatedir="/var"  $qtflags
-	elif use client ;then
-		econf --disable-node --disable-menuitem $qtflags
-	elif use server; then
-		econf --disable-client --localstatedir="/var"
-	fi
+	econf $(use_with upnp miniupnpc)  $(use_enable client) $(use_enable node) $qtflags
 }
 
 src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
-	use server && newinitd "${FILESDIR}/pica-node-initd" pica-node
-	use server && newconfd "${FILESDIR}/pica-node-confd" pica-node
+	use node && newinitd "${FILESDIR}/pica-node-initd" pica-node
+	use node && newconfd "${FILESDIR}/pica-node-confd" pica-node
 }
 
 pkg_preinst() {
-	
-	if use server; then
+
+	if use node; then
 		enewuser pica-node
 		fowners -R pica-node:pica-node "/var/lib/pica-node"
 
@@ -93,7 +87,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	
+
 	if use client; then
 		xdg-icon-resource install --size 32 "${S}/pica-client/picapica-icon-sit.png" pica-client
 		xdg-icon-resource install --size 22 "${S}/pica-client/picapica-icon-sit.png" pica-client
@@ -101,8 +95,8 @@ pkg_postinst() {
 
 		xdg-desktop-menu install "${S}/pica-client/pica-client.desktop"
 	fi
-	
-	use server && elog "Set announced_addr value to your IP address in config file before running pica-node"
+
+	use node && elog "Set announced_addr value to your IP address in config file before running pica-node"
 }
 
 pkg_postrm() {
