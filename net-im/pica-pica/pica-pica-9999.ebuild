@@ -28,7 +28,10 @@ DEPEND=">=dev-libs/openssl-1.0.2q
 	!net-im/pica-node
 	!net-im/pica-client
 
-	node? ( >=dev-db/sqlite-3.7.0 )
+	node? (
+			>=dev-db/sqlite-3.7.0
+			>=dev-libs/libevent-2.1.6
+		)
 
 	client? (
 		qt4? (
