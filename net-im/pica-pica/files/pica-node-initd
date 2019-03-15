@@ -1,4 +1,4 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 PICANODE_BIN="${PICANODE_BIN:-/usr/bin/pica-node}"
 PICANODE_OPTS="${PICANODE_OPTS:--v}"
