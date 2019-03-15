@@ -23,7 +23,7 @@ SLOT="0"
 
 IUSE="+client node qt4 +qt5 upnp"
 
-DEPEND=">=dev-libs/openssl-1.0.2q
+DEPEND=">=dev-libs/openssl-1.0.2r
 	upnp? ( >=net-libs/miniupnpc-2.0 )
 	!net-im/pica-node
 	!net-im/pica-client
