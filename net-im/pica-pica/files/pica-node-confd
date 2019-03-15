@@ -17,4 +17,4 @@
 
 ### Pid file to use
 #PIDFILE="/var/run/pica-node.pid"
-
+rc_ulimit="-n 65536"
