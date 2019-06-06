@@ -92,9 +92,10 @@ pkg_preinst() {
 pkg_postinst() {
 
 	if use client; then
-		xdg-icon-resource install --size 32 "${S}/pica-client/picapica-icon-sit.png" pica-client
-		xdg-icon-resource install --size 22 "${S}/pica-client/picapica-icon-sit.png" pica-client
-		xdg-icon-resource install --size 64 "${S}/pica-client/picapica-icon-sit.png" pica-client
+		xdg-icon-resource install --size 48 "${S}/pica-client/icons/icon_48x48.png" pica-client
+		xdg-icon-resource install --size 32 "${S}/pica-client/icons/icon_32x32.png" pica-client
+		xdg-icon-resource install --size 16 "${S}/pica-client/icons/icon_16x16.png" pica-client
+		xdg-icon-resource install --size 256 "${S}/pica-client/picapica-icon-fly.png" pica-client
 
 		xdg-desktop-menu install "${S}/pica-client/pica-client.desktop"
 	fi
