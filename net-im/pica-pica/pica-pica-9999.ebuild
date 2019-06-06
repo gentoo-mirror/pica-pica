@@ -109,6 +109,9 @@ pkg_postrm() {
 		xdg-icon-resource uninstall --size 22 pica-client
 		xdg-icon-resource uninstall --size 64 pica-client
 
+		xdg-icon-resource uninstall --size 16 pica-client
+		xdg-icon-resource uninstall --size 48 pica-client
+		xdg-icon-resource uninstall --size 256 pica-client
 		xdg-desktop-menu uninstall pica-client.desktop
 	fi
 }
