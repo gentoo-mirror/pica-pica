@@ -18,7 +18,7 @@ fi
 DESCRIPTION="Pica Pica Messenger and Node in single ebuild"
 HOMEPAGE="http://picapica.im/"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 
 IUSE="+client node qt4 +qt5 upnp"
