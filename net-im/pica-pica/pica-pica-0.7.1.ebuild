@@ -8,7 +8,7 @@ inherit eutils user
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="git://github.com/antonsviridenko/pica-pica.git"
-    inherit git-2 eutils autotools
+    inherit git-r3 eutils autotools
     SRC_URI=""
 else
 	SRC_URI="http://picapica.im/pica-pica-${PV}.tar.gz"
