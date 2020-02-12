@@ -7,7 +7,7 @@ EAPI=4
 inherit eutils user
 
 if [[ ${PV} == "9999" ]] ; then
-    EGIT_REPO_URI="git://github.com/antonsviridenko/pica-pica.git"
+    EGIT_REPO_URI="https://github.com/antonsviridenko/pica-pica.git"
     inherit git-r3 eutils autotools
     SRC_URI=""
 else
