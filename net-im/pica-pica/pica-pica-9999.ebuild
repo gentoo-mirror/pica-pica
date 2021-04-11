@@ -57,7 +57,8 @@ S="${WORKDIR}/pica-pica-${PV}"
 
 if [[ ${PV} == "9999" ]] ; then
 src_prepare() {
-    eautoreconf -i
+	default
+	eautoreconf -i
 }
 fi
 
