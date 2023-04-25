@@ -1,6 +1,6 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
 DEFINED_PHASES=configure install postinst postrm preinst prepare unpack
-DEPEND=>=dev-libs/openssl-1.0.2r upnp? ( >=net-libs/miniupnpc-2.0 ) !net-im/pica-node !net-im/pica-client node? ( >=dev-db/sqlite-3.7.0 >=dev-libs/libevent-2.1.6 ) client? ( qt4? ( >dev-qt/qtgui-4.0.0 >dev-qt/qtcore-4.0.0 >dev-qt/qtsql-4.0.0[sqlite] ) qt5? ( >dev-qt/qtcore-5.10.0 >dev-qt/qtwidgets-5.10.0 >dev-qt/qtgui-5.10.0 >dev-qt/qtnetwork-5.10.0 >dev-qt/qtsql-5.10.0[sqlite] ) virtual/pkgconfig x11-misc/xdg-utils media-sound/alsa-utils )
+DEPEND=>=dev-libs/openssl-1.0.2r upnp? ( >=net-libs/miniupnpc-2.0 ) !net-im/pica-node !net-im/pica-client node? ( >=dev-db/sqlite-3.7.0 >=dev-libs/libevent-2.1.6 ) client? ( qt4? ( >dev-qt/qtgui-4.0.0 >dev-qt/qtcore-4.0.0 >dev-qt/qtsql-4.0.0[sqlite] ) qt5? ( >dev-qt/qtcore-5.10.0 >dev-qt/qtwidgets-5.10.0 >dev-qt/qtgui-5.10.0 >dev-qt/qtnetwork-5.10.0 >dev-qt/qtsql-5.10.0[sqlite] ) virtual/pkgconfig x11-misc/xdg-utils media-sound/alsa-utils dev-qt/qtchooser )
 DESCRIPTION=Pica Pica Messenger and Node
 EAPI=7
 HOMEPAGE=http://picapica.im/
@@ -8,7 +8,7 @@ INHERIT=eutils git-r3 eutils autotools
 IUSE=+client node qt4 +qt5 upnp
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=>=dev-libs/openssl-1.0.2r upnp? ( >=net-libs/miniupnpc-2.0 ) !net-im/pica-node !net-im/pica-client node? ( >=dev-db/sqlite-3.7.0 >=dev-libs/libevent-2.1.6 ) client? ( qt4? ( >dev-qt/qtgui-4.0.0 >dev-qt/qtcore-4.0.0 >dev-qt/qtsql-4.0.0[sqlite] ) qt5? ( >dev-qt/qtcore-5.10.0 >dev-qt/qtwidgets-5.10.0 >dev-qt/qtgui-5.10.0 >dev-qt/qtnetwork-5.10.0 >dev-qt/qtsql-5.10.0[sqlite] ) virtual/pkgconfig x11-misc/xdg-utils media-sound/alsa-utils ) node? ( acct-user/pica-node acct-group/pica-node )
+RDEPEND=>=dev-libs/openssl-1.0.2r upnp? ( >=net-libs/miniupnpc-2.0 ) !net-im/pica-node !net-im/pica-client node? ( >=dev-db/sqlite-3.7.0 >=dev-libs/libevent-2.1.6 ) client? ( qt4? ( >dev-qt/qtgui-4.0.0 >dev-qt/qtcore-4.0.0 >dev-qt/qtsql-4.0.0[sqlite] ) qt5? ( >dev-qt/qtcore-5.10.0 >dev-qt/qtwidgets-5.10.0 >dev-qt/qtgui-5.10.0 >dev-qt/qtnetwork-5.10.0 >dev-qt/qtsql-5.10.0[sqlite] ) virtual/pkgconfig x11-misc/xdg-utils media-sound/alsa-utils dev-qt/qtchooser ) node? ( acct-user/pica-node acct-group/pica-node )
 SLOT=0
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32	git-r3	27e13c09a4c7e4c78ac812f74727e676	gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	f0d3196128225dee3220e65f3371bc7a
-_md5_=010993d98d016ac12ef75a62d155fadd
+_md5_=aab4ac194027a43948e1ec0095049b18
