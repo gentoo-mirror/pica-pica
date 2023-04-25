@@ -4,7 +4,7 @@
 
 EAPI=7
 
-inherit eutils user
+inherit eutils
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="https://github.com/antonsviridenko/pica-pica.git"
@@ -15,7 +15,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="Pica Pica Messenger and Node in single ebuild"
+DESCRIPTION="Pica Pica Messenger and Node"
 HOMEPAGE="http://picapica.im/"
 
 LICENSE="GPL-3"
@@ -51,7 +51,11 @@ DEPEND=">=dev-libs/openssl-1.0.2r
 		media-sound/alsa-utils
 	)"
 
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	node? (
+			acct-user/pica-node
+			acct-group/pica-node
+		)"
 
 S="${WORKDIR}/pica-pica-${PV}"
 
@@ -82,7 +86,6 @@ src_install() {
 pkg_preinst() {
 
 	if use node; then
-		enewuser pica-node
 		fowners -R pica-node:pica-node "/var/lib/pica-node"
 
 		dodir "/var/log/pica-node"
