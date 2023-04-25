@@ -49,6 +49,7 @@ DEPEND=">=dev-libs/openssl-1.0.2r
 		virtual/pkgconfig
 		x11-misc/xdg-utils
 		media-sound/alsa-utils
+		dev-qt/qtchooser
 	)"
 
 RDEPEND="${DEPEND}
