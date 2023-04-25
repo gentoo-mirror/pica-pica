@@ -1,0 +1,3 @@
+acct-group/pica-node 0-r1: System group: pica-node
+acct-user/pica-node 0-r1: User for net-im/pica-pica
+net-im/pica-pica 0.7.1 9999: Pica Pica Messenger and Node
