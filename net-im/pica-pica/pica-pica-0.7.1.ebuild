@@ -4,7 +4,7 @@
 
 EAPI=8
 
-inherit autotools git-r3
+inherit autotools desktop git-r3
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="https://github.com/antonsviridenko/pica-pica.git"
@@ -81,6 +81,11 @@ src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
 	use node && newinitd "${FILESDIR}/pica-node-initd" pica-node
 	use node && newconfd "${FILESDIR}/pica-node-confd" pica-node
+	domenu "${S}/pica-client/pica-client.desktop"
+	newicon -s 16 "${S}/pica-client/icons/icon_16x16.png" pica-client.png
+	newicon -s 32 "${S}/pica-client/icons/icon_32x32.png" pica-client.png
+	newicon -s 48 "${S}/pica-client/icons/icon_48x48.png" pica-client.png
+	newicon -s 256 "${S}/pica-client/picapica-icon-fly.png" pica-client.png
 }
 
 pkg_preinst() {
@@ -95,29 +100,7 @@ pkg_preinst() {
 
 pkg_postinst() {
 
-	if use client; then
-		xdg-icon-resource install --size 48 "${S}/pica-client/icons/icon_48x48.png" pica-client
-		xdg-icon-resource install --size 32 "${S}/pica-client/icons/icon_32x32.png" pica-client
-		xdg-icon-resource install --size 16 "${S}/pica-client/icons/icon_16x16.png" pica-client
-		xdg-icon-resource install --size 256 "${S}/pica-client/picapica-icon-fly.png" pica-client
-
-		xdg-desktop-menu install "${S}/pica-client/pica-client.desktop"
-	fi
-
 	use node && elog "Set the announced_addr value to your IP address in a config file before running the pica-node"
-}
-
-pkg_postrm() {
-	if use client; then
-		xdg-icon-resource uninstall --size 32 pica-client
-		xdg-icon-resource uninstall --size 22 pica-client
-		xdg-icon-resource uninstall --size 64 pica-client
-
-		xdg-icon-resource uninstall --size 16 pica-client
-		xdg-icon-resource uninstall --size 48 pica-client
-		xdg-icon-resource uninstall --size 256 pica-client
-		xdg-desktop-menu uninstall pica-client.desktop
-	fi
 }
 
 
