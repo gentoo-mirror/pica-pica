@@ -2,13 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=7
+EAPI=8
 
-inherit eutils
+inherit autotools git-r3
 
 if [[ ${PV} == "9999" ]] ; then
     EGIT_REPO_URI="https://github.com/antonsviridenko/pica-pica.git"
-    inherit git-r3 eutils autotools
     SRC_URI=""
 else
 	SRC_URI="http://picapica.im/pica-pica-${PV}.tar.gz"
@@ -18,7 +17,7 @@ fi
 DESCRIPTION="Pica Pica Messenger and Node"
 HOMEPAGE="http://picapica.im/"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 
 IUSE="+client node qt4 +qt5 upnp"
@@ -62,6 +61,7 @@ S="${WORKDIR}/pica-pica-${PV}"
 
 if [[ ${PV} == "9999" ]] ; then
 src_prepare() {
+    eapply_user
     eautoreconf -i
 }
 fi
@@ -104,7 +104,7 @@ pkg_postinst() {
 		xdg-desktop-menu install "${S}/pica-client/pica-client.desktop"
 	fi
 
-	use node && elog "Set announced_addr value to your IP address in config file before running pica-node"
+	use node && elog "Set the announced_addr value to your IP address in a config file before running the pica-node"
 }
 
 pkg_postrm() {
