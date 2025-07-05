@@ -10,5 +10,5 @@ LICENSE=GPL-3
 PROPERTIES=live
 RDEPEND=>=dev-libs/openssl-1.0.2r upnp? ( >=net-libs/miniupnpc-2.0 ) !net-im/pica-node !net-im/pica-client node? ( >=dev-db/sqlite-3.7.0 >=dev-libs/libevent-2.1.6 ) client? ( qt4? ( >dev-qt/qtgui-4.0.0 >dev-qt/qtcore-4.0.0 >dev-qt/qtsql-4.0.0[sqlite] ) qt5? ( >dev-qt/qtcore-5.10.0 >dev-qt/qtwidgets-5.10.0 >dev-qt/qtgui-5.10.0 >dev-qt/qtnetwork-5.10.0 >dev-qt/qtsql-5.10.0[sqlite] ) virtual/pkgconfig x11-misc/xdg-utils media-sound/alsa-utils dev-qt/qtchooser ) node? ( acct-user/pica-node acct-group/pica-node )
 SLOT=0
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=15870d427a0516b0042e4ece2f439955
